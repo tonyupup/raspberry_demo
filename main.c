@@ -12,7 +12,8 @@
 char *usage = "Usage: main -h\n"
               "       main Fan\n"
               "       main Distance\n"
-              "       main Temp\n";
+              "       main Temp\n"
+              "       main autoRun\n";
 
 int main(int argc, char *argv[])
 {
@@ -33,6 +34,10 @@ int main(int argc, char *argv[])
     if (strcmp(argv[1], "Fan") == 0)
     {
         Switch(FAN_PIN);
+        return 0;
+    }
+    if (strcmp(argv[1],"autoRun")==0){
+        autoRun();
         return 0;
     }
     if (strcmp(argv[1], "Distance") == 0)

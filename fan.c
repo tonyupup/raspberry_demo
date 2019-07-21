@@ -10,6 +10,16 @@ void Switch(int pin)
     pinMode(pin,OUTPUT);
     digitalWrite(pin, digitalRead(pin) == 1 ? 0 : 1);
 }
+void autoRun()
+{
+    while(1){ 
+        if (getcurrentTemp()>=TEMP_THRESHOLD ){
+            Switch(FAN_PIN);
+        }else{
+        delay(30000);
+        }
+    }
+}
 
 float getcurrentTemp()
 {
